@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate: one
+  questionnaire: one
+  candidate_feedback: MyText
+
+two:
+  candidate: two
+  questionnaire: two
+  candidate_feedback: MyText

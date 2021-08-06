@@ -1,0 +1,14 @@
+<div class="grid grid-cols-4 mb-2 border-b border-gray-200 p-2">
+  <div class="inline col-span-2">
+    <%= questionnaire.title %>
+  </div>
+
+  <div class="inline text-right">
+    <%= questionnaire.questions.count %>
+  </div>
+
+  <div class="inline col-span-1 text-right">
+    <%= link_to 'Edit', edit_questionnaire_path(questionnaire) %>
+    <%= link_to 'Destroy', questionnaire, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>

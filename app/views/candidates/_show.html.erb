@@ -1,0 +1,19 @@
+<div class="grid grid-cols-4 mb-2 border-b border-gray-200 p-2">
+  <div class="inline col-span-2">
+    <%= candidate.name %> <br>
+    <div class="text-gray-500">
+      <%= candidate.email %>
+    </div>
+  </div>
+
+  <div class="inline col-span-2 text-right">
+    <%= link_to 'Edit', edit_candidate_path(candidate) %>
+    <%= link_to 'Destroy', candidate, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    <br>
+
+    <div class="text-gray-500">
+      <%= candidate.questionnaire&.title %>
+    </div>
+  </div>
+</div>

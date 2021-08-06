@@ -1,0 +1,25 @@
+<%= form_with(model: question, data: { action: "ajax:success->questions#createSuccess" }) do |form| %>
+  <% if question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+        <% question.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.text_field :question, data: { target: "questions.questionBody" }, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "Type your question..." %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.number_field :allotted_score, min: 1, data: { target: "questions.allottedScoreBody" }, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "Allot a score..." %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded cursor-pointer" %>
+  </div>
+<% end %>

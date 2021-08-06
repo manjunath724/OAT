@@ -1,0 +1,9 @@
+<div class="grid grid-cols-3 container mx-auto max-w-xl border border-gray-200 p-4 mt-4 rounded">
+  <div class="inline col-span-2">
+    <%= answer.answer %>
+  </div>
+
+  <div class="inline col-span-1 text-right">
+    <%= link_to 'Edit', edit_answer_path(answer) %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container mx-auto max-w-xl border border-gray-200 p-4 mt-4 rounded">
+  <div data-controller="questions">
+    <div class="grid grid-cols-4">
+      <h3 class="inline col-span-2 text-xl mb-2">Questions</h3>
+      <h3 class="inline text-right text-xl mb-2">Scores</h3>
+    </div>
+
+    <%= render partial: 'show', collection: @questions, as: :question %>
+
+    <div data-questions-target="questionList" class="mb-4"></div>
+
+    <br>
+
+    <div><%= render 'form', question: Question.new %></div>
+  </div>
+</div>

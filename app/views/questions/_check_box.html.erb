@@ -1,0 +1,28 @@
+<div class="mb-4">
+  <div class="grid grid-cols-3">
+    <div class="inline col-span-2">
+      <b>Questions</b>
+    </div>
+
+    <div class="inline col-span-1 text-right">
+      <b>Score</b>
+    </div>
+  </div>
+
+  <br>
+
+  <% for question in Question.all %>
+    <div class="grid grid-cols-3">
+      <div class="inline col-span-2">
+        <%= check_box_tag "questionnaire[question_ids][]", question.id, questionnaire.questions.include?(question), { class: "text-gray-700 border rounded mr-2" } %>
+        <%=h question.question %>
+      </div>
+
+      <div class="inline col-span-1 text-gray-500 text-right">
+        <%=h question.allotted_score %>
+      </div>
+
+      <br>
+    </div>
+  <% end %>
+</div>

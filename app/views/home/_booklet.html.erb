@@ -1,0 +1,38 @@
+<div class="grid grid-cols-6 mb-2 border-b border-gray-200 p-2">
+  <div class="inline col-span-2">
+    <%= booklet.questionnaire.title %>
+  </div>
+
+  <div class="inline col-span-2">
+    <%= booklet.candidate.name %> <br>
+    <div class="text-gray-500">
+      <%= booklet.candidate.email %>
+    </div>
+  </div>
+
+  <div class="inline text-center">
+    <div class="grid grid-cols-5">
+      <% booklet.rating.to_i.times do |t| %>
+        <div class="inline mx-1 fill-current text-yellow-300">
+          ★
+        </div>
+      <% end %>
+      <% (5 - booklet.rating.to_i).times do |t| %>
+        <div class="inline mx-1 fill-current text-gray-200">
+          ★
+        </div>
+      <% end %>
+    </div>
+    <%= booklet.remarks %>
+  </div>
+
+  <div class="inline text-center">
+    <% if booklet.submitted? %>
+      <%= link_to 'Review', booklet_path(booklet), class: "bg-transparent hover:bg-green-500 text-green-600 font-semibold hover:text-white py-2 px-2 border border-green-500 hover:border-transparent rounded cursor-pointer" %>
+    <% elsif booklet.issued? %>
+      <b class="text-yellow-500"><%= booklet.status %></b>
+    <% elsif booklet.reviewed? %>
+      <b class="text-green-500"><%= booklet.status %></b>
+    <% end %>
+  </div>
+</div>
